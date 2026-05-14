@@ -26,13 +26,17 @@ public class HelloController {
     @GetMapping("/")
     public String hello() {
         try {
+            
             String appUser = System.getenv("APP_USER");
             String name = (appUser == null || appUser.isEmpty()) ? "World" : appUser;
-            Long count = getHitCountSafe();
-            String base = String.format("Hello %s!", name);
+            
             
             Long count = getHitCountSafe();
-            String base = "Hello World";
+            
+           
+            String base = String.format("Hello %s!", name);
+            
+            
             return (count == null)
                     ? base + " (Redis indisponible)\n"
                     : base + String.format(" J'ai été visité %d fois.\n", count);
