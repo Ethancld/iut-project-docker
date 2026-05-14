@@ -6,6 +6,12 @@ import redis.clients.jedis.Jedis;
 @RestController
 public class HelloController {
 
+<<<<<<< HEAD
+=======
+    /**
+     * @return Number of hits or null if Redis is unavailable
+     */
+>>>>>>> origin/redis-feature
     private Long getHitCountSafe() throws InterruptedException {
         int retries = 5;
 
@@ -22,15 +28,24 @@ public class HelloController {
         }
         return null;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/redis-feature
 
     @GetMapping("/")
     public String hello() {
         try {
+<<<<<<< HEAD
             String appUser = System.getenv("APP_USER");
             String name = (appUser == null || appUser.isEmpty()) ? "World" : appUser;
             Long count = getHitCountSafe();
             String base = String.format("Hello %s!", name);
             
+=======
+            Long count = getHitCountSafe();
+            String base = "Hello World";
+>>>>>>> origin/redis-feature
             return (count == null)
                     ? base + " (Redis indisponible)\n"
                     : base + String.format(" J'ai été visité %d fois.\n", count);
